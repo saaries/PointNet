@@ -24,18 +24,18 @@ python train_segmentation.py --dataset=data_directory --nepoch=5 --outf=path_to_
 
 - Change the path to make sure the code can find the pointnet module and the dataset. // Follow the error reported.
 
-- Can perform classification and segmentation tasks.
-
-#### IMPORTANT ####
-- Reduce the batch_size if lack of memory issue is reported.
-- When changeing the batch_size, REMEMBER to check the value in train_classification.py line139. You need to understand why I changed the code here (compared to Fxia22).
-- Wish you good luck
-
+- Can perform classification and segmentation tasks
 
 #### ABOUT VISUALIZATION TOOL ####
 - The visualization tools (to visualize segmentation result) given by charlesq34 can only run on Linux (but it was written in C++, so I managed to build a .dll so it can now run on a Win).
 
 - If the visualization tool did not work for you, see the report, it will tell you how to make the .dll file [really simple]
 
+
+#### IMPORTANT ####
+- Reduce the batch_size if lack of memory issue is reported.
+- When changeing the batch_size, REMEMBER to check the value in train_classification.py line139. You need to understand why I changed the code here (compared to Fxia22).
+- Wish you good luck
+
 The segmentation result:
-![img](https://github.com/saaries/PointNet/blob/master/stich.png)
+![img](https://github.com/saaries/PointNet/blob/master/resources_for_report/stich.png)
