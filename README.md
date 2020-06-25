@@ -1,68 +1,41 @@
-# PointNet.pytorch
-This repo is implementation for PointNet(https://arxiv.org/abs/1612.00593) in pytorch. The model is in `pointnet/model.py`.
+# PointNet
+PointNet implementation on Windows x86 (pyTorch version, most of codes are from Fxia22).
 
-It is tested with pytorch-1.0.
+charlesq34: https://github.com/charlesq34/pointnet ////// https://arxiv.org/abs/1612.00593
 
-# Download data and running
+Fxia22's wonderful work: https://github.com/fxia22/pointnet.pytorch.
 
-```
-git clone https://github.com/fxia22/pointnet.pytorch
-cd pointnet.pytorch
-pip install -e .
-```
+#### How long do I need to train the mosel? ####
+- Within 40 min for classification task (?? I do not remember LoL). Segmentation will be much faster!
 
-Download and build visualization tool
-```
-cd script
-bash build.sh #build C++ code for visualization
-bash download.sh #download dataset
-```
+#### How to run ####
+enter the project directory\utils
+python train_classification.py --dataset=data_directory --nepoch=10
+python train_segmentation.py --dataset=data_directory --nepoch=5 --outf=path_to_save_trained_model
 
-Training 
-```
-cd utils
-python train_classification.py --dataset <dataset path> --nepoch=<number epochs> --dataset_type <modelnet40 | shapenet>
-python train_segmentation.py --dataset <dataset path> --nepoch=<number epochs> 
-```
+#### Other chatter ####
+- This code can runs on a Windows PC with GPU enabled. No need for Linux, no need for virtual machine, no need for OpenCV tools, etc.
 
-Use `--feature_transform` to use feature transform.
+- From the last part of the .pdf report file, you can find a lot of useful solutions I made during the code reproduction. I believed it would save you a lot of time.
 
-# Performance
+- Have pytorch installed in advanced. I used anaconda-environments to manage the modules and PyCharm as IDE.
 
-## Classification performance
+- The dataset used: http://stanford.edu/~rqi/pointnet/
 
-On ModelNet40:
+- Change the path to make sure the code can find the pointnet module and the dataset. // Follow the error reported.
 
-|  | Overall Acc | 
-| :---: | :---: | 
-| Original implementation | 89.2 | 
-| this implementation(w/o feature transform) | 86.4 | 
-| this implementation(w/ feature transform) | 87.0 | 
+- Can perform classification and segmentation tasks.
 
-On [A subset of shapenet](http://web.stanford.edu/~ericyi/project_page/part_annotation/index.html)
+#### IMPORTANT ####
+- Reduce the batch_size if lack of memory issue is reported.
+- When changeing the batch_size, REMEMBER to check the value in train_classification.py line139. You need to understand why I changed the code here (compared to Fxia22).
+- Wish you good luck
 
-|  | Overall Acc | 
-| :---: | :---: | 
-| Original implementation | N/A | 
-| this implementation(w/o feature transform) | 98.1 | 
-| this implementation(w/ feature transform) | 97.7 | 
 
-## Segmentation performance
+#### ABOUT VISUALIZATION TOOL ####
+- The visualization tools (to visualize segmentation result) given by charlesq34 can only run on Linux (but it was written in C++, so I managed to build a .dll so it can now run on a Win).
 
-Segmentation on  [A subset of shapenet](http://web.stanford.edu/~ericyi/project_page/part_annotation/index.html).
+- If the visualization tool did not work for you, see the report, it will tell you how to make the .dll file [really simple]
 
-| Class(mIOU) | Airplane | Bag| Cap|Car|Chair|Earphone|Guitar|Knife|Lamp|Laptop|Motorbike|Mug|Pistol|Rocket|Skateboard|Table
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | 
-| Original implementation |  83.4 | 78.7 | 82.5| 74.9 |89.6| 73.0| 91.5| 85.9| 80.8| 95.3| 65.2| 93.0| 81.2| 57.9| 72.8| 80.6| 
-| this implementation(w/o feature transform) | 73.5 | 71.3 | 64.3 | 61.1 | 87.2 | 69.5 | 86.1|81.6| 77.4|92.7|41.3|86.5|78.2|41.2|61.0|81.1|
-| this implementation(w/ feature transform) |  |  |  |  | 87.6 |  | | | | | | | | | |81.0|
-
-Note that this implementation trains each class separately, so classes with fewer data will have slightly lower performance than reference implementation.
-
-Sample segmentation result:
-![seg](https://raw.githubusercontent.com/fxia22/pointnet.pytorch/master/misc/show3d.png?token=AE638Oy51TL2HDCaeCF273X_-Bsy6-E2ks5Y_BUzwA%3D%3D)
-
-# Links
-
-- [Project Page](http://stanford.edu/~rqi/pointnet/)
-- [Tensorflow implementation](https://github.com/charlesq34/pointnet)
+The segmentation result:
+![img](https://github.com/saaries/PointNet/blob/master/stich.png)
