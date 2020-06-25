@@ -37,5 +37,8 @@ python train_segmentation.py --dataset=data_directory --nepoch=5 --outf=path_to_
 - When changeing the batch_size, REMEMBER to check the value in train_classification.py line139. You need to understand why I changed the code here (compared to Fxia22).
 - Wish you good luck
 
-The segmentation result:
+The segmentation result visualization:
+![img](https://github.com/saaries/PointNet/blob/master/resources_for_report/seg_result.gif)
+
+Some segmentation results:
 ![img](https://github.com/saaries/PointNet/blob/master/resources_for_report/stich.png)
