@@ -1,0 +1,3 @@
+python .\utils\train_classification.py --dataset=E:\CG-pointcloud\pointnet.pytorch-master\shapenetcore_partanno_segmentation_benchmark_v0 --nepoch=5
+
+python .\utils\train_classification.py --dataset=E:\CG-pointcloud\master\ModelNet40 --nepoch=5 --outf=E:\CG-pointcloud\master\Modenet40_cls

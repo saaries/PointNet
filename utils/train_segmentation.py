@@ -3,8 +3,9 @@ import argparse
 import sys
 import os
 import random
-sys.path.append(os.getcwd())
-sys.path.append('E:\CG-pointcloud\Pointnet.pytorch-master')
+
+# change 'E:\@\@\@\Pointnet.pytorch-master' below to your own project directory
+sys.path.append('E:\CG\CG-pointcloud\git11\Pointnet.pytorch-master')
 
 import torch
 import torch.nn.parallel

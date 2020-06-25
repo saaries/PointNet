@@ -64,7 +64,9 @@ class ShapeNetDataset(data.Dataset):
                  split='train',
                  data_augmentation=True):
         self.npoints = npoints
-        root = 'E:\CG-pointcloud\master\Pointnet.pytorch-master\shapenetcore_partanno_segmentation_benchmark_v0'
+        # root = 'E:\CG-pointcloud\master\Pointnet.pytorch-master\shapenetcore_partanno_segmentation_benchmark_v0'
+        # Change the below path to your own dataset
+        root = 'E:\CG\CG-pointcloud\git11\Pointnet.pytorch-master\shapenetcore_partanno_segmentation_benchmark_v0'
         self.root = root
 
         # self.root = 'E:\CG-pointcloud\Pointnet.pytorch-master\shapenetcore_partanno_segmentation_benchmark_v0',

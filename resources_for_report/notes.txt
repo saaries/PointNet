@@ -1,0 +1,17 @@
+If you mean the points_label folder in each category/class folder, then each line represents the part label/index for corresponding point in the points folder.
+
+The dataset structure, take ShapeNet for example, should be something like this:
+ShapeNet_root_folder
+
+class 1 (e.g.: plane)
+1.1 points (coordinates of points)
+1.2 points_label (labels for corresponding points)
+1.3 seg_img (part-segmented 2D images of class)
+class 2 (e.g.: hand bag)
+2.1 points (coordinates of points)
+2.2 points_label (labels for corresponding points)
+2.3 seg_img (part-segmented 2D images of class)
+...
+You can view the images inside each seg_img folder to clearly understand.
+
+

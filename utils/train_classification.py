@@ -4,7 +4,8 @@ import sys
 import os
 
 sys.path.append(os.getcwd())
-sys.path.append('E:\master\CG-pointcloud\Pointnet.pytorch-master')
+# change 'E:\@\@\@\Pointnet.pytorch-master' below to your own project directory
+sys.path.append('E:\CG\CG-pointcloud\git11\Pointnet.pytorch-master')
 
 import random
 import torch
@@ -30,7 +31,7 @@ if __name__ == '__main__':
     parser.add_argument('--outf', type=str, default='cls', help='output folder')
     parser.add_argument('--model', type=str, default='', help='model path')
     parser.add_argument('--dataset', type=str, required=True, help="dataset path")
-    parser.add_argument('--dataset_type', type=str, default='modelnet40', help="dataset type shapenet|modelnet40")
+    parser.add_argument('--dataset_type', type=str, default='shapenet', help="dataset type shapenet|modelnet40")
     parser.add_argument('--feature_transform', action='store_true', help="use feature transform")
 
     opt = parser.parse_args()
