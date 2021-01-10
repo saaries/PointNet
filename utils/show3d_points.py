@@ -2,6 +2,11 @@ import numpy as np
 import ctypes as ct
 import cv2
 import sys
+import os
+sys.path.append(os.getcwd())
+# sys.path.append(r'E:\CityU\CG\CG-pointcloud\master\Pointnet.pytorch-master\utils')
+# sys.path.append(r'E:\CityU\CG\CG-pointcloud\master\Pointnet.pytorch-master')
+# os.chdir(r'E:\CityU\CG\CG-pointcloud\master\Pointnet.pytorch-master\utils')
 showsz = 800
 mousex, mousey = 0.5, 0.5
 zoom = 1.0
@@ -21,7 +26,9 @@ cv2.setMouseCallback('show3d', onmouse)
 
 
 from ctypes import*
-dll = cdll.LoadLibrary('render_balls_so.dll')
+# dll = cdll.LoadLibrary('render_balls_so.dll')
+
+dll = cdll.LoadLibrary(r'E:\CityU\CG\CG-pointcloud\master\Pointnet.pytorch-master\utils\render_balls_so.dll')
 
 
 
